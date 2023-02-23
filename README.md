@@ -3,4 +3,4 @@ Unbound the best validating, recursive, and caching DNS resolver with DNS based 
 
 
 # Docker image
-https://hub.docker.com/r/chandanghosh/unbound-docker
+docker pull chandanghosh/unbound-docker:1.17

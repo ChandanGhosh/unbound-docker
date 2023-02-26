@@ -3,4 +3,7 @@ Unbound the best validating, recursive, and caching DNS resolver with DNS based 
 
 
 # Docker image
-docker pull chandanghosh/unbound-docker:1.17
+chandanghosh/unbound-docker:1.17
+
+# Unbound in Kubernetes
+Check the unbound-conf.yaml [here](https://github.com/ChandanGhosh/blocky-unbound-k3s)

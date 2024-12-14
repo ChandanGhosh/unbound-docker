@@ -37,7 +37,7 @@ jobs:
           docker buildx create --use
           docker buildx build \
             --platform linux/${{ matrix.architecture }} \
-            -t chandanghosh/unbound-docker:${{ matrix.architecture }} \
+            -t chandanghosh/unbound-docker:latest \
             -f Dockerfile . \
             --push
 

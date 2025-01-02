@@ -9,7 +9,7 @@ EXPOSE 53/udp
 ARG VERSION=1.22.0-r0
 
 
-RUN apk add --no-cache unbound=${VERSION} tini curl wget bind-tools drill sed \
+RUN apk add --no-cache unbound=${VERSION} tini curl wget bind-tools drill sed ca-certificates \
 && curl -o /etc/unbound/root.hints http://www.internic.net/domain/named.root \
 && wget -O /etc/unbound/unbound_ad_servers "https://pgl.yoyo.org/adservers/serverlist.php?hostformat=unbound&showintro=0&startdate[day]=&startdate[month]=&startdate[year]=&mimetype=plaintext"
 

@@ -1,0 +1,12 @@
+services:
+  unbound:
+    image: chandanghosh/unbound-docker:latest
+    container_name: unbound-dns
+    restart: unless-stopped
+    ports:
+      - "53:53/tcp"
+      - "53:53/udp"
+    volumes:
+      - ./forward-records.conf:/etc/unbound/forward-records.conf:ro
+    environment:
+      - TZ=Asia/Kolkata

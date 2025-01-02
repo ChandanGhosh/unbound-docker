@@ -49,9 +49,19 @@ jobs:
         tags: |
           chandanghosh/unbound-docker:${{ env.version }}
           chandanghosh/unbound-docker:latest
+    
+    # Check if release exists
+    - name: Check if release exists
+      id: check_release
+      run: |
+        curl -s -o /dev/null -w "%{http_code}" \
+        -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" \
+        https://api.github.com/repos/${{ github.repository }}/releases/tags/v${{ env.version }} \
+        | grep -q 200 && echo "exists=true" >> $GITHUB_ENV || echo "exists=false" >> $GITHUB_ENV
 
     # Create a GitHub release
     - name: Create GitHub Release
+      if: env.exists == 'false'
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

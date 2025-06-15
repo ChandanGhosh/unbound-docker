@@ -18,10 +18,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
+      with:
+        ref: ${{ github.event.pull_request.head.sha || github.sha }}
 
     - name: Read VERSION
       id: version
-      run: echo "version=$(cat VERSION)" >> $GITHUB_ENV
+      run: |
+        echo "VERSION=$(cat VERSION)"
+        echo "version=$(cat VERSION)" >> $GITHUB_ENV
+
+    - name: Debug VERSION
+      run: echo "Using VERSION=${{ env.version }}"
 
     - name: Set up QEMU
       uses: docker/setup-qemu-action@v2

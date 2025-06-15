@@ -50,6 +50,8 @@ jobs:
         context: .
         platforms: linux/amd64,linux/arm64,linux/arm/v7
         push: ${{ github.event_name == 'push' }}
+        build-args: |
+          VERSION=${{ env.version }}
         tags: |
           chandanghosh/unbound-docker:${{ env.version }}
           chandanghosh/unbound-docker:latest

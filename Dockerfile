@@ -8,6 +8,7 @@ EXPOSE 53/udp
 # Read the VERSION file
 ARG VERSION=1.22.0-r0
 
+RUN echo "Unbound :" ${VERSION}
 
 RUN apk update && apk add --no-cache unbound=${VERSION} tini curl wget bind-tools drill sed ca-certificates \
 && curl -o /etc/unbound/root.hints http://www.internic.net/domain/named.root \

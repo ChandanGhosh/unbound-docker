@@ -1,4 +1,4 @@
-FROM alpine:3.22
+FROM alpine:3.24
 
 LABEL maintainer="Chandan Ghosh <ckghosh1983@gmail.com>" description="Unbound DNS"
 
